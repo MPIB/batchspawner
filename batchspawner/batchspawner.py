@@ -592,8 +592,8 @@ class SlurmSpawner(UserEnvMixin,BatchSpawnerRegexStates):
 #SBATCH --export={{keepvars}}
 #SBATCH --get-user-env=L
 {% if partition  %}#SBATCH --partition={{partition}}
-{% endif %}{% if runtime    %}#SBATCH --time={{runtime}}
-{% endif %}{% if memory     %}#SBATCH --mem={{memory}}
+{% endif %}{% if runtime    %}#SBATCH --time={{runtime}}:00:00
+{% endif %}{% if memory     %}#SBATCH --mem={{memory}}GB
 {% endif %}{% if nprocs     %}#SBATCH --cpus-per-task={{nprocs}}
 {% endif %}{% if reservation%}#SBATCH --reservation={{reservation}}
 {% endif %}{% if options    %}#SBATCH {{options}}{% endif %}
