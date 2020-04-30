@@ -83,7 +83,7 @@ class BatchSpawnerBase(Spawner):
     # override default server ip since batch jobs normally running remotely
     ip = Unicode("0.0.0.0", help="Address for singleuser server to listen at").tag(config=True)
 
-    exec_prefix = Unicode('sudo -E -u {username}',
+    exec_prefix = Unicode('sudo -u {username} JUPYTERHUB_API_TOKEN=$JUPYTERHUB_API_TOKEN ',
         help="Standard executon prefix (e.g. the default sudo -E -u {username})"
         ).tag(config=True)
 
