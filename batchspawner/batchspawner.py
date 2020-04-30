@@ -596,6 +596,7 @@ class SlurmSpawner(UserEnvMixin,BatchSpawnerRegexStates):
 {% endif %}{% if memory     %}#SBATCH --mem={{memory}}GB
 {% endif %}{% if nprocs     %}#SBATCH --cpus-per-task={{nprocs}}
 {% endif %}{% if reservation%}#SBATCH --reservation={{reservation}}
+{% endif %}{% if ngpus %}#SBATCH --gres gpu:{{ngpus}}
 {% endif %}{% if options    %}#SBATCH {{options}}{% endif %}
 
 trap 'echo SIGTERM received' TERM
